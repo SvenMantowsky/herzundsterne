@@ -69,6 +69,49 @@
                   <button type="submit" class="btn custom-btn">Abschicken</button>
                 </form>
               </div>
+              
+
+              <!-- Include Bootstrap Modal -->
+              <div class="modal fade" id="submissionModal" tabindex="-1" aria-labelledby="submissionModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="submissionModalLabel">Form Submitted</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Thank you for your submission!
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <script>
+                function handleFormSubmission(event) {
+                  event.preventDefault();
+
+                  // Submit the form via AJAX (if necessary) or just display the modal
+                  // Here we're assuming the form is successfully submitted
+                  const form = document.getElementById('gform');
+                  const data = new FormData(form);
+                  
+                  fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    mode: 'no-cors'
+                  }).then(() => {
+                    // Show the modal on successful submission
+                    var myModal = new bootstrap.Modal(document.getElementById('submissionModal'));
+                    myModal.show();
+                  }).catch(error => {
+                    console.error('Error submitting the form:', error);
+                  });
+                }
+              </script>
+              <!-- 
               <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
               <script src="assets/js/jquery.min.js"></script>
               <script type="text/javascript">var submitted=false;</script>
@@ -78,6 +121,7 @@
                   $('#gform').prepend('Your submission has been processed...');
                   });
               </script>
+              -->
               <!-- Form Column
               <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSexRtn9JW86Wupwng_uJwgk613nPdrqY_3rDE9KG_1AXqwNMg/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
                 Vorname:<br>
