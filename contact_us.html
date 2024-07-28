@@ -41,7 +41,7 @@
                 <img src="images/aboutme_page/vera.png" alt="Contact Me" class="img-fluid">
               </div>
               
-              <!-- Form Column -->
+              <!-- Form Column 
               <div class="col-md-6">
                 <form action="http://formspree.io/sven.mantowsky@gmail.com" method="POST">
                   <div class="form-group">
@@ -62,6 +62,31 @@
                   <button type="submit" class="btn custom-btn">Send</button>
                 </form>
               </div>
+              -->
+              https://docs.google.com/forms/d/e/1FAIpQLSexRtn9JW86Wupwng_uJwgk613nPdrqY_3rDE9KG_1AXqwNMg/viewform?usp=pp_url&entry.561195613=TestFirstName&entry.1340730782=TestLastName&entry.1893906429=TestEmail@gmail.com&entry.1082619249=Hello+There
+
+              <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSexRtn9JW86Wupwng_uJwgk613nPdrqY_3rDE9KG_1AXqwNMg/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                Vorname:<br>
+                <input type="text" name="entry.561195613"><br>
+                Nachname:<br>
+                <input type="text" name="entry.1340730782">
+                Email Adresse:<br>
+                <input type="text" name="entry.1893906429">
+                Nachricht:<br>
+                <input type="text" name="entry.1082619249">
+                <input type="submit" value="Submit">
+              </form>
+
+              <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+
+              <script src="assets/js/jquery.min.js"></script>
+              <script type="text/javascript">var submitted=false;</script>
+              <script type="text/javascript">
+              $('#gform').on('submit', function(e) {
+                $('#gform *').fadeOut(2000);
+                $('#gform').prepend('Your submission has been processed...');
+              });
+            </script>
             </div>
         </div>
           
