@@ -70,7 +70,14 @@
                 </form>
               </div>
               <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
-
+              <script src="assets/js/jquery.min.js"></script>
+              <script type="text/javascript">var submitted=false;</script>
+              <script type="text/javascript">
+                $('#gform').on('submit', function(e) {
+                  $('#gform *').fadeOut(2000);
+                  $('#gform').prepend('Your submission has been processed...');
+                  });
+              </script>
               <!-- Form Column
               <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLSexRtn9JW86Wupwng_uJwgk613nPdrqY_3rDE9KG_1AXqwNMg/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
                 Vorname:<br>
@@ -86,14 +93,7 @@
 
               <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
 
-              <script src="assets/js/jquery.min.js"></script>
-              <script type="text/javascript">var submitted=false;</script>
-              <script type="text/javascript">
-              $('#gform').on('submit', function(e) {
-                $('#gform *').fadeOut(2000);
-                $('#gform').prepend('Your submission has been processed...');
-              });
-              </script>
+              
                -->
             </div>
         </div>
